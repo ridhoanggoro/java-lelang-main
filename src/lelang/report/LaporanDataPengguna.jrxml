@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="1bfec76e-bf82-4f54-a8f7-49216460c574">
+	<property name="ireport.zoom" value="7.400249944258182"/>
+	<property name="ireport.x" value="1393"/>
+	<property name="ireport.y" value="1207"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+     tb_petugas.`id_petugas` AS tb_petugas_id_petugas,
+     tb_petugas.`nama_petugas` AS tb_petugas_nama_petugas,
+     tb_petugas.`username` AS tb_petugas_username,
+     tb_petugas.`password` AS tb_petugas_password,
+     tb_petugas.`id_level` AS tb_petugas_id_level,
+     tb_masyarakat.`id_user` AS tb_masyarakat_id_user,
+     tb_masyarakat.`nama_lengkap` AS tb_masyarakat_nama_lengkap,
+     tb_masyarakat.`username` AS tb_masyarakat_username,
+     tb_masyarakat.`password` AS tb_masyarakat_password,
+     tb_masyarakat.`telp` AS tb_masyarakat_telp
+FROM
+     `tb_petugas` tb_petugas,
+     `tb_masyarakat` tb_masyarakat]]>
+	</queryString>
+	<field name="tb_petugas_id_petugas" class="java.lang.Integer"/>
+	<field name="tb_petugas_nama_petugas" class="java.lang.String"/>
+	<field name="tb_petugas_username" class="java.lang.String"/>
+	<field name="tb_petugas_password" class="java.lang.String"/>
+	<field name="tb_petugas_id_level" class="java.lang.Integer"/>
+	<field name="tb_masyarakat_id_user" class="java.lang.Integer"/>
+	<field name="tb_masyarakat_nama_lengkap" class="java.lang.String"/>
+	<field name="tb_masyarakat_username" class="java.lang.String"/>
+	<field name="tb_masyarakat_password" class="java.lang.String"/>
+	<field name="tb_masyarakat_telp" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="218" y="14" width="119" height="29" uuid="91203221-2804-49e4-aa03-ed5f30edc6d3"/>
+				<textElement textAlignment="Center">
+					<font size="18"/>
+				</textElement>
+				<text><![CDATA[Lelang]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="76" y="43" width="407" height="20" uuid="96852ecc-acbd-429e-b9ed-6957d937cfa8"/>
+				<text><![CDATA[Jln. Jalan Terus Tapi Gak Jadian, No.04, Ds. Kuvukiland, Kec. Ciledug, Kab. Cirebon]]></text>
+			</staticText>
+			<line>
+				<reportElement x="76" y="63" width="407" height="1" uuid="2701beee-b9dd-47b7-9971-1aecf78dfb9f"/>
+			</line>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch">
+			<staticText>
+				<reportElement x="200" y="15" width="177" height="20" uuid="6ada121c-b392-4ce8-9b42-52821b798fef"/>
+				<textElement>
+					<font size="15"/>
+				</textElement>
+				<text><![CDATA[Laporan Data Pengguna]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="43" splitType="Stretch">
+			<staticText>
+				<reportElement x="218" y="14" width="100" height="20" uuid="f8960a98-85a7-4979-8f48-906e6fcab372"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Username]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="351" y="14" width="100" height="20" uuid="4af49159-2f00-469c-b728-df674bc82675"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[No.Telp]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="100" y="14" width="100" height="20" uuid="58f997e2-a1dc-4d63-bff3-24e605f4120e"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Nama Lengkap]]></text>
+			</staticText>
+			<line>
+				<reportElement x="100" y="34" width="100" height="1" uuid="21a93e2c-2690-45c8-a465-c546baa76ad3"/>
+			</line>
+			<line>
+				<reportElement x="218" y="35" width="100" height="1" uuid="23b3b61f-2395-4636-9537-880148a2ded4"/>
+			</line>
+			<line>
+				<reportElement x="351" y="33" width="100" height="1" uuid="9d624eee-8471-45c7-9645-a05bb0251456"/>
+			</line>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="38" splitType="Stretch">
+			<textField>
+				<reportElement x="100" y="9" width="100" height="20" uuid="8f28bf52-d597-4dda-84af-2ca104ecf906"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{tb_masyarakat_nama_lengkap}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="218" y="9" width="100" height="20" uuid="d4e74d3e-d8e4-4a6b-9ef7-f1b2b9f928f1"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{tb_petugas_username}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="351" y="9" width="100" height="20" uuid="938369dc-6eda-4eba-9899-4a2a69d7c006"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{tb_masyarakat_telp}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="100" y="8" width="351" height="1" uuid="6c703e05-c468-4e40-b22c-58d7acc88106"/>
+			</line>
+			<line>
+				<reportElement x="100" y="29" width="351" height="1" uuid="d2f606f3-fa43-4644-bd28-00e6a65d13a6"/>
+			</line>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

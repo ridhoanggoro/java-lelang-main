@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="242af3f6-5602-483d-ad58-8e4293f75220">
+	<property name="ireport.zoom" value="2.5937424601000076"/>
+	<property name="ireport.x" value="374"/>
+	<property name="ireport.y" value="318"/>
+	<queryString>
+		<![CDATA[SELECT
+     tb_barang.`id_barang` AS tb_barang_id_barang,
+     tb_barang.`nama_barang` AS tb_barang_nama_barang,
+     tb_barang.`tgl` AS tb_barang_tgl,
+     tb_barang.`harga_awal` AS tb_barang_harga_awal,
+     tb_barang.`deskripsi_barang` AS tb_barang_deskripsi_barang,
+     tb_history_lelang.`id_history` AS tb_history_lelang_id_history,
+     tb_history_lelang.`id_lelang` AS tb_history_lelang_id_lelang,
+     tb_history_lelang.`id_barang` AS tb_history_lelang_id_barang,
+     tb_history_lelang.`id_user` AS tb_history_lelang_id_user,
+     tb_history_lelang.`penawaran_harga` AS tb_history_lelang_penawaran_harga,
+     tb_lelang.`id_lelang` AS tb_lelang_id_lelang,
+     tb_lelang.`id_barang` AS tb_lelang_id_barang,
+     tb_lelang.`tgl_lelang` AS tb_lelang_tgl_lelang,
+     tb_lelang.`harga_akhir` AS tb_lelang_harga_akhir,
+     tb_lelang.`id_user` AS tb_lelang_id_user,
+     tb_lelang.`id_petugas` AS tb_lelang_id_petugas,
+     tb_lelang.`status` AS tb_lelang_status,
+     tb_masyarakat.`id_user` AS tb_masyarakat_id_user,
+     tb_masyarakat.`nama_lengkap` AS tb_masyarakat_nama_lengkap,
+     tb_masyarakat.`username` AS tb_masyarakat_username,
+     tb_masyarakat.`password` AS tb_masyarakat_password,
+     tb_masyarakat.`telp` AS tb_masyarakat_telp
+FROM
+     `tb_barang` tb_barang INNER JOIN `tb_history_lelang` tb_history_lelang ON tb_barang.`id_barang` = tb_history_lelang.`id_barang`
+     INNER JOIN `tb_lelang` tb_lelang ON tb_barang.`id_barang` = tb_lelang.`id_barang`
+     AND tb_lelang.`id_lelang` = tb_history_lelang.`id_lelang`
+     INNER JOIN `tb_masyarakat` tb_masyarakat ON tb_lelang.`id_user` = tb_masyarakat.`id_user`
+     AND tb_masyarakat.`id_user` = tb_history_lelang.`id_user` WHERE harga_akhir IS NOT NULL AND status='ditutup']]>
+	</queryString>
+	<field name="tb_barang_id_barang" class="java.lang.Integer"/>
+	<field name="tb_barang_nama_barang" class="java.lang.String"/>
+	<field name="tb_barang_tgl" class="java.sql.Date"/>
+	<field name="tb_barang_harga_awal" class="java.lang.Integer"/>
+	<field name="tb_barang_deskripsi_barang" class="java.lang.String"/>
+	<field name="tb_history_lelang_id_history" class="java.lang.Integer"/>
+	<field name="tb_history_lelang_id_lelang" class="java.lang.Integer"/>
+	<field name="tb_history_lelang_id_barang" class="java.lang.Integer"/>
+	<field name="tb_history_lelang_id_user" class="java.lang.Integer"/>
+	<field name="tb_history_lelang_penawaran_harga" class="java.lang.Integer"/>
+	<field name="tb_lelang_id_lelang" class="java.lang.Integer"/>
+	<field name="tb_lelang_id_barang" class="java.lang.Integer"/>
+	<field name="tb_lelang_tgl_lelang" class="java.sql.Date"/>
+	<field name="tb_lelang_harga_akhir" class="java.lang.Integer"/>
+	<field name="tb_lelang_id_user" class="java.lang.Integer"/>
+	<field name="tb_lelang_id_petugas" class="java.lang.Integer"/>
+	<field name="tb_lelang_status" class="java.lang.String"/>
+	<field name="tb_masyarakat_id_user" class="java.lang.Integer"/>
+	<field name="tb_masyarakat_nama_lengkap" class="java.lang.String"/>
+	<field name="tb_masyarakat_username" class="java.lang.String"/>
+	<field name="tb_masyarakat_password" class="java.lang.String"/>
+	<field name="tb_masyarakat_telp" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="218" y="17" width="119" height="29" uuid="d134dff1-cbf9-4ed3-ab22-06cafba8e72f"/>
+				<textElement textAlignment="Center">
+					<font size="18"/>
+				</textElement>
+				<text><![CDATA[Lelang]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="72" y="46" width="407" height="20" uuid="9d2d9436-51cc-4183-8f3a-f30686592a60"/>
+				<text><![CDATA[Jln. Jalan Terus Tapi Gak Jadian, No.04, Ds. Kuvukiland, Kec. Ciledug, Kab. Cirebon]]></text>
+			</staticText>
+			<line>
+				<reportElement x="72" y="66" width="407" height="1" uuid="edf4fc68-d2a0-44f5-8ae5-9c46f2167220"/>
+			</line>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch">
+			<staticText>
+				<reportElement x="145" y="15" width="270" height="20" uuid="7ad5e155-8a71-49ef-85a0-3d9cacdbd8e9"/>
+				<textElement>
+					<font size="15"/>
+				</textElement>
+				<text><![CDATA[Laporan Barang Yang Berhasil Dilelang]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="42" splitType="Stretch">
+			<staticText>
+				<reportElement x="22" y="17" width="82" height="20" uuid="1b1e24d4-ee51-40e1-be57-1c349b60861c"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Tanggal Lelang]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="121" y="17" width="73" height="20" uuid="8ad7e7d9-fefd-4c2b-b2b4-e9c14330099f"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Nama Barang]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="208" y="17" width="59" height="20" uuid="e2098e2c-55a5-4dee-b1e1-a13e927400bf"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Harga Awal]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="291" y="17" width="58" height="20" uuid="04f8689a-8c21-4fb5-adc6-9652a5103035"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Harga Akhir]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="372" y="17" width="57" height="20" uuid="11f85795-472c-47d4-9c6e-10d085be95b4"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Pemenang]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="451" y="17" width="67" height="20" uuid="2ca8e780-4a21-4763-8daa-5d8a8d78e7ea"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[No.Telp]]></text>
+			</staticText>
+			<line>
+				<reportElement x="22" y="37" width="82" height="1" uuid="600d948f-aca0-433e-ba50-7277ca1da3dd"/>
+			</line>
+			<line>
+				<reportElement x="121" y="37" width="73" height="1" uuid="a732c6cb-2b7e-431d-940f-898156113732"/>
+			</line>
+			<line>
+				<reportElement x="208" y="37" width="59" height="1" uuid="b32f48f3-ddd2-4145-b9f4-dbe52d139313"/>
+			</line>
+			<line>
+				<reportElement x="291" y="37" width="58" height="1" uuid="8766dd89-7f75-4910-88ce-6cb0c41caac5"/>
+			</line>
+			<line>
+				<reportElement x="372" y="37" width="57" height="1" uuid="df1dd889-58cc-4246-89fe-85e0892d6fc9"/>
+			</line>
+			<line>
+				<reportElement x="451" y="37" width="67" height="1" uuid="136fa292-fb23-4b4c-8f75-bb7d765facf9"/>
+			</line>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="36" splitType="Stretch">
+			<textField>
+				<reportElement x="22" y="9" width="82" height="20" uuid="466e202d-5816-4108-a4cd-43c307e13479"/>
+				<textElement textAlignment="Center">
+					<font isStrikeThrough="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tb_lelang_tgl_lelang}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="121" y="9" width="73" height="20" uuid="8b1e2092-d494-4be4-b466-65f3d3adcb8f"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{tb_barang_nama_barang}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="208" y="9" width="59" height="20" uuid="8c40ad8a-c947-4005-9dbf-1b28267add7d"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{tb_barang_harga_awal}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="291" y="9" width="58" height="20" uuid="02e4edaf-e8ea-4fc6-9c6f-e6e9f79a5d1a"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{tb_lelang_harga_akhir}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="372" y="9" width="57" height="20" uuid="2d0a5c36-f342-47c6-8079-122decd1bcb2"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{tb_masyarakat_nama_lengkap}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="451" y="9" width="67" height="20" uuid="f73398cb-2320-430a-bb11-a8e6ba863810"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{tb_masyarakat_telp}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="22" y="7" width="496" height="1" uuid="fbb8816e-9931-4cc4-a755-1d82dd6e2358"/>
+			</line>
+			<line>
+				<reportElement x="22" y="29" width="496" height="1" uuid="1692afab-a67c-492b-9476-022c9eac3b6f"/>
+			</line>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

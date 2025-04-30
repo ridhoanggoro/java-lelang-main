@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="8e3e7d49-667f-4e7a-ba9b-65fafdeb2373">
+	<property name="ireport.zoom" value="1.4641000000000015"/>
+	<property name="ireport.x" value="217"/>
+	<property name="ireport.y" value="28"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+     tb_petugas.`id_petugas` AS tb_petugas_id_petugas,
+     tb_petugas.`nama_petugas` AS tb_petugas_nama_petugas,
+     tb_petugas.`username` AS tb_petugas_username,
+     tb_petugas.`password` AS tb_petugas_password,
+     tb_petugas.`id_level` AS tb_petugas_id_level,
+     tb_level.`id_level` AS tb_level_id_level,
+     tb_level.`level` AS tb_level_level
+FROM
+     `tb_level` tb_level INNER JOIN `tb_petugas` tb_petugas ON tb_level.`id_level` = tb_petugas.`id_level`]]>
+	</queryString>
+	<field name="tb_petugas_id_petugas" class="java.lang.Integer"/>
+	<field name="tb_petugas_nama_petugas" class="java.lang.String"/>
+	<field name="tb_petugas_username" class="java.lang.String"/>
+	<field name="tb_petugas_password" class="java.lang.String"/>
+	<field name="tb_petugas_id_level" class="java.lang.Integer"/>
+	<field name="tb_level_id_level" class="java.lang.Integer"/>
+	<field name="tb_level_level" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="228" y="24" width="119" height="29" uuid="9b2068cb-ab00-4732-9fcf-47e2218ca30e"/>
+				<textElement textAlignment="Center">
+					<font size="18"/>
+				</textElement>
+				<text><![CDATA[Lelang]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="86" y="53" width="407" height="20" uuid="3863f23e-68e6-4afb-ae71-86761b4e93ce"/>
+				<text><![CDATA[Jln. Jalan Terus Tapi Gak Jadian, No.04, Ds. Kuvukiland, Kec. Ciledug, Kab. Cirebon]]></text>
+			</staticText>
+			<line>
+				<reportElement x="86" y="73" width="407" height="1" uuid="cb154293-b6df-4783-a92c-333d1aec5fdb"/>
+			</line>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch">
+			<staticText>
+				<reportElement x="211" y="15" width="177" height="20" uuid="ce39746d-315f-4dd6-ba63-8e1111d255fc"/>
+				<textElement>
+					<font size="15"/>
+				</textElement>
+				<text><![CDATA[Laporan Data Petugas]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="47" splitType="Stretch">
+			<staticText>
+				<reportElement x="111" y="17" width="100" height="20" uuid="026c2f22-b555-4ead-8289-9fd51a43afe4"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Nama Petugas]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="228" y="17" width="100" height="20" uuid="7c085add-a04e-4155-b4fa-d80b52000472"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Username]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="347" y="17" width="100" height="20" uuid="a3d5f9d9-d144-479e-a2f6-693c53de2682"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Hak Akses]]></text>
+			</staticText>
+			<line>
+				<reportElement x="111" y="37" width="100" height="1" uuid="5e5bcb41-3e90-4248-b0af-6fde0bf81e11"/>
+			</line>
+			<line>
+				<reportElement x="228" y="38" width="100" height="1" uuid="8e87f2f5-8531-4e8a-b4dc-575c54df0084"/>
+			</line>
+			<line>
+				<reportElement x="347" y="38" width="100" height="1" uuid="4a85728a-43ef-4f24-bb98-9c7cc0b65aa8"/>
+			</line>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="38" splitType="Stretch">
+			<textField>
+				<reportElement x="111" y="11" width="100" height="20" uuid="7b3bf90d-1624-426b-bf2b-b5b44bac3954"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{tb_petugas_nama_petugas}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="228" y="11" width="100" height="20" uuid="af8dad20-d17c-4572-b482-91120131541e"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{tb_petugas_username}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="347" y="11" width="100" height="20" uuid="70b33b40-d555-4d38-956f-7c1574b7f2c1"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{tb_level_level}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="111" y="10" width="336" height="1" uuid="2b6460a7-0093-4757-b132-71715b38c809"/>
+			</line>
+			<line>
+				<reportElement x="111" y="31" width="336" height="1" uuid="8bd27120-354c-469d-acbf-4790d3bc19bd"/>
+			</line>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="1" splitType="Stretch"/>
+	</summary>
+</jasperReport>

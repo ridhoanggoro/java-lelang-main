@@ -10,7 +10,7 @@ import javax.swing.*;
 
 /**
  *
- * @author Fikri Khairul Shaleh
+ * @author Ridho Anggoro Naibaho
  *  - Hak Akses Administrator
 	Username: admin
 	Password: batagorenak
@@ -20,6 +20,9 @@ import javax.swing.*;
     - Hak Akses Masyarakat/User
         Username: ridho
         Password: batagorenak
+        * 
+        * form pemilik barang
+        * form transaksi lelang/pemenang keluar masuk barang
  */
 public class Koneksi {
     public Connection con;
@@ -27,7 +30,7 @@ public class Koneksi {
     
     private static final String DATABASE_NAME = "lelang";
     private static final String USERNAME = "root";
-    private static final String PASSWORD = "";
+    private static final String PASSWORD = "5L!bpGzGCP5f0Ql/";
    
     public Koneksi(){
         try{

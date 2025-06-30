@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="1bfec76e-bf82-4f54-a8f7-49216460c574">
-	<property name="ireport.zoom" value="7.400249944258182"/>
-	<property name="ireport.x" value="1393"/>
-	<property name="ireport.y" value="1207"/>
+	<property name="ireport.zoom" value="4.177248169415662"/>
+	<property name="ireport.x" value="1414"/>
+	<property name="ireport.y" value="277"/>
 	<queryString language="SQL">
 		<![CDATA[SELECT
      tb_petugas.`id_petugas` AS tb_petugas_id_petugas,
@@ -43,7 +43,7 @@ FROM
 			</staticText>
 			<staticText>
 				<reportElement x="76" y="43" width="407" height="20" uuid="96852ecc-acbd-429e-b9ed-6957d937cfa8"/>
-				<text><![CDATA[Jln. Jalan Terus Tapi Gak Jadian, No.04, Ds. Kuvukiland, Kec. Ciledug, Kab. Cirebon]]></text>
+				<text><![CDATA[Jln. Jalan Terus Tapi Gak Jadian, No.04, Ds. Kuvukiland, Kec. Ciledug, Jakarta]]></text>
 			</staticText>
 			<line>
 				<reportElement x="76" y="63" width="407" height="1" uuid="2701beee-b9dd-47b7-9971-1aecf78dfb9f"/>

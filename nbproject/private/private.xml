@@ -3,14 +3,9 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Ridho/Kuliah/Pemrograman%20Visual/java-lelang-main/src/lelang/report/LaporanDataPengguna.jrxml</file>
-            <file>file:/C:/Ridho/Kuliah/Pemrograman%20Visual/java-lelang-main/src/lelang/menu/User.java</file>
-            <file>file:/C:/Ridho/Kuliah/Pemrograman%20Visual/java-lelang-main/src/lelang/master/DataLelang.java</file>
-            <file>file:/C:/Ridho/Kuliah/Pemrograman%20Visual/java-lelang-main/src/lelang/report/LaporanDataBarang.jrxml</file>
-            <file>file:/C:/Ridho/Kuliah/Pemrograman%20Visual/java-lelang-main/src/lelang/Koneksi.java</file>
-            <file>file:/C:/Ridho/Kuliah/Pemrograman%20Visual/java-lelang-main/src/lelang/menu/Petugas.java</file>
-            <file>file:/C:/Ridho/Kuliah/Pemrograman%20Visual/java-lelang-main/src/lelang/report/LaporanLelang.jrxml</file>
-            <file>file:/C:/Ridho/Kuliah/Pemrograman%20Visual/java-lelang-main/src/lelang/menu/Admin.java</file>
+            <file>file:/C:/Ridho/Kuliah/Pemrograman%20Visual/java-lelang-main/src/lelang/master/DataPemilikBarang.java</file>
+            <file>file:/C:/Ridho/Kuliah/Pemrograman%20Visual/java-lelang-main/src/lelang/master/PopUpPemilikBarang.java</file>
+            <file>file:/C:/Ridho/Kuliah/Pemrograman%20Visual/java-lelang-main/src/lelang/master/DataPetugas.java</file>
         </group>
     </open-files>
 </project-private>

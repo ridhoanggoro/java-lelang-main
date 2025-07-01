@@ -38,6 +38,7 @@ public class DataPemilikBarang extends javax.swing.JFrame {
         setKosong();
         setAktif();
         populateDataTable();
+        txtId.setEditable(false);
     }
     
     protected void setAktif() {
@@ -57,7 +58,7 @@ public class DataPemilikBarang extends javax.swing.JFrame {
         String[] kolom = {"ID Pemilik", "Nama Pemilik", "Tipe", "Telp", "Alamat","Status"};
         DefaultTableModel tabmode = new DefaultTableModel(null, kolom);
         String qry = txtCari.getText();
-        String sql = "SELECT * FROM tb_pemilik WHERE nama_pemilik LIKE ? OR telp LIKE ? ORDER BY nama_pemilik ASC";
+        String sql = "SELECT *,CASE WHEN status=1 THEN 'Aktif' Else 'Tidak Aktif' END AS 'status_desc' FROM tb_pemilik WHERE nama_pemilik LIKE ? OR telp LIKE ? ORDER BY nama_pemilik ASC";
 
         try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
             pstmt.setString(1, "%" + qry + "%");
@@ -70,7 +71,7 @@ public class DataPemilikBarang extends javax.swing.JFrame {
                         hasil.getString("tipe"),
                         hasil.getString("telp"),
                         hasil.getString("alamat"),
-                        hasil.getString("status"),
+                        hasil.getString("status_desc"),
                 });
             }
             tblPemilik.setModel(tabmode);
@@ -348,7 +349,7 @@ public class DataPemilikBarang extends javax.swing.JFrame {
 
             txtId.setText(id);
             txtNama.setText(nama);
-            if ("1".equalsIgnoreCase(status)) { 
+            if ("Aktif".equalsIgnoreCase(status)) { 
                 rbStatus.setSelected(true);
             } else {
                 rbStatus.setSelected(false);

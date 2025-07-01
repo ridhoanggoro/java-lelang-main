@@ -88,7 +88,7 @@ public class DataBarang extends javax.swing.JFrame {
     }
     
     private void aturTable(){
-        String[] judul = {"ID Barang", "Nama Barang", "Harga Awal", "Deskripsi"};
+        String[] judul = {"ID Barang", "Nama Barang", "Harga Awal", "Deskripsi", "Nama Pemilik"};
         model = new DefaultTableModel(null, judul){
             @Override
             public boolean isCellEditable(int row,int column){
@@ -98,10 +98,15 @@ public class DataBarang extends javax.swing.JFrame {
         jTable1.setModel(model);
         
         try{
-            sql = "SELECT * FROM tb_barang";
+            sql = "SELECT * FROM tb_barang LEFT JOIN tb_pemilik on tb_pemilik.id_pemilik=tb_barang.id_pemilik";
             rs = stat.executeQuery(sql);
             while(rs.next()){
-                Object[] isi = {rs.getString("id_barang"),rs.getString("nama_barang"),rs.getString("harga_awal"),rs.getString("deskripsi_barang")};
+                Object[] isi = {
+                    rs.getString("id_barang"),
+                    rs.getString("nama_barang"),
+                    rs.getString("harga_awal"),
+                    rs.getString("deskripsi_barang"),
+                    rs.getString("nama_pemilik")};
                 model.addRow(isi);
             }
             
@@ -114,6 +119,7 @@ public class DataBarang extends javax.swing.JFrame {
             jTable1.getColumnModel().getColumn(1).setCellRenderer(render);
             jTable1.getColumnModel().getColumn(2).setCellRenderer(render);
             jTable1.getColumnModel().getColumn(3).setCellRenderer(render);
+            jTable1.getColumnModel().getColumn(4).setCellRenderer(render);
         }catch (Exception e){
             JOptionPane.showMessageDialog(null,"gagal"+e.getMessage());
         }
@@ -344,14 +350,15 @@ public class DataBarang extends javax.swing.JFrame {
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
         // TODO add your handling code here:
          try{
-            sql = "SELECT * FROM tb_barang WHERE id_barang='"+jTable1.getValueAt(jTable1.getSelectedRow(),0)+"'";
+            sql = "SELECT tb_barang.id_barang, tb_barang.nama_barang, tb_barang.harga_awal, tb_barang.deskripsi_barang, tb_pemilik.id_pemilik,tb_pemilik.nama_pemilik  FROM tb_barang LEFT JOIN tb_pemilik on tb_pemilik.id_pemilik=tb_barang.id_pemilik WHERE id_barang='"+jTable1.getValueAt(jTable1.getSelectedRow(),0)+"'";
             rs = stat.executeQuery(sql);
             if(rs.next()){
                 jTextField2.setText(rs.getString("id_barang"));
                 jTextField3.setText(rs.getString("nama_barang"));
                 jTextField1.setText(rs.getString("harga_awal"));
                 jTextArea1.setText(rs.getString("deskripsi_barang"));
-                
+                txtIdPemilik.setText(rs.getString("id_pemilik"));
+                txtNamaPemilik.setText(rs.getString("nama_pemilik"));
                 tampilCRUD();
             }   
         }catch (Exception e){
@@ -362,7 +369,7 @@ public class DataBarang extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
         try{
-               sql = "UPDATE tb_barang SET nama_barang='"+ jTextField3.getText() +"', harga_awal='"+ jTextField1.getText() +"', deskripsi_barang='"+ jTextArea1.getText() +"' WHERE id_barang='"+ jTextField2.getText() +"'";
+               sql = "UPDATE tb_barang SET nama_barang='"+ jTextField3.getText() +"', harga_awal='"+ jTextField1.getText() +"', deskripsi_barang='"+ jTextArea1.getText() + "', id_pemilik='"+ txtIdPemilik.getText() +"' WHERE id_barang='"+ jTextField2.getText() +"'";
                stat.execute(sql);
                JOptionPane.showMessageDialog(null, "Sukses edit data");
                
